@@ -1,0 +1,72 @@
+{
+  "expo": {
+    "name": "RideGodi",
+    "slug": "ridegodi",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "backgroundColor": "#0a0a0a"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.ridegodi.app",
+      "infoPlist": {
+        "NSBluetoothAlwaysUsageDescription": "RideGodi needs Bluetooth to connect to and unlock bikes.",
+        "NSBluetoothPeripheralUsageDescription": "RideGodi uses Bluetooth to communicate with bike locks.",
+        "NSLocationWhenInUseUsageDescription": "Required by iOS for Bluetooth LE scanning.",
+        "UIBackgroundModes": [
+          "bluetooth-central",
+          "bluetooth-central"
+        ],
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#0a0a0a"
+      },
+      "package": "com.ridegodi.app",
+      "permissions": [
+        "android.permission.BLUETOOTH",
+        "android.permission.BLUETOOTH_ADMIN",
+        "android.permission.BLUETOOTH_SCAN",
+        "android.permission.BLUETOOTH_CONNECT",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION"
+      ]
+    },
+    "plugins": [
+      [
+        "react-native-ble-plx",
+        {
+          "isBackgroundEnabled": true,
+          "modes": [
+            "peripheral",
+            "central"
+          ],
+          "bluetoothAlwaysPermission": "RideGodi needs Bluetooth to unlock bikes."
+        }
+      ],
+      [
+        "react-native-permissions",
+        {
+          "iosPermissions": [
+            "BluetoothPeripheral",
+            "LocationWhenInUse"
+          ]
+        }
+      ]
+    ],
+    "assets": [
+      "./assets/bikes.txt"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "4287c5c6-b92b-47d9-9b35-84cf504faaf5"
+      }
+    }
+  }
+}
